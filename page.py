@@ -8,13 +8,20 @@ class SearchTextElement(BasePageElement):
     #The locator for search box where search string is entered
     #locator = 'q'
 
+#i=0
+#for listitem in lists:
+ #  print (listitem)
+ #  i=i+1
+  # if(i>10):
+  #    break
 
 class BasePage(object):
     """Base class to initialize the base page that will be called from all pages"""
 
     def __init__(self, driver):
         self.driver = driver
-
+        #eMail='firooz.yazdi@phyn.com'
+        #pAssword = 'phyn123'
 
 class MainPage(BasePage):
     """Home page action methods come here. I.e. phynbeta"""
@@ -30,10 +37,10 @@ class MainPage(BasePage):
         """Triggers the search"""
         #element = self.driver.find_element(*MainPageLocators.GO_BUTTON)
         #element.click()
-    def login(self):
-        element1 = self.driver.find_element(*LoginPageLocators.EMAIL).send_keys('firooz.yazdi@phyn.com')
+    def login(self, email, password):
+        element1 = self.driver.find_element(*LoginPageLocators.EMAIL).send_keys(email)
         time.sleep(2)
-        element2 = self.driver.find_element(*LoginPageLocators.PASSWORD).send_keys('phyn123')
+        element2 = self.driver.find_element(*LoginPageLocators.PASSWORD).send_keys(password)
         time.sleep(2)
         element3 = self.driver.find_element(*LoginPageLocators.SUBMIT)
         element3.click()
